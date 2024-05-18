@@ -4,17 +4,12 @@ import 'package:flutter/foundation.dart';
 part 'settings_state.dart';
 
 class SettingsCubit extends Cubit<SettingsState> {
-  SettingsCubit() : super(SettingsInitial(isCelcius: true));
+  SettingsCubit() : super(SettingsInitial(isCelsius: true));
 
   void toggleTemperatureUnit() {
-    final currentstate = state;
-    if (currentstate is SettingsInitial) {
-      emit(copyWith(isCelcius: !currentstate.isCelcius));
+    final currentState = state;
+    if (currentState is SettingsInitial) {
+      emit(SettingsInitial(isCelsius: !currentState.isCelsius));
     }
-  }
-
-  SettingsState copyWith({bool? isCelcius}) {
-    return SettingsInitial(
-        isCelcius: isCelcius ?? (state as SettingsInitial).isCelcius);
   }
 }

@@ -1,17 +1,18 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
-import 'package:weather_app_bloc/fakedata.dart';
+
+import '../../fakedata.dart';
 
 part 'weather_state.dart';
 
 class WeatherCubit extends Cubit<WeatherState> {
-  WeatherCubit() : super(WeatherInitial(isCelcius: true, temperature: "0"));
+  WeatherCubit() : super(WeatherInitial(isCelsius: true, temperature: "0"));
 
-  void toggleTemperatureUnit({required bool isCelcius}) {
+  void toggleTemperatureUnit({required bool isCelsius}) {
     final currentState = state;
     if (currentState is WeatherInitial) {
       emit(WeatherInitial(
-        isCelcius: isCelcius,
+        isCelsius: isCelsius,
         temperature: currentState.temperature,
       ));
     }
@@ -23,18 +24,18 @@ class WeatherCubit extends Cubit<WeatherState> {
       final fakeData = FakeData.getFakeData();
       final temperature = fakeData.keys.first;
       emit(WeatherInitial(
-        isCelcius: fakeData[temperature]!,
+        isCelsius: fakeData[temperature]!,
         temperature: temperature,
       ));
     }
   }
 
   WeatherState copyWith({
-    bool? isCelcius,
+    bool? isCelsius,
     String? temperature,
   }) {
     return WeatherInitial(
-      isCelcius: isCelcius ?? (state as WeatherInitial).isCelcius,
+      isCelsius: isCelsius ?? (state as WeatherInitial).isCelsius,
       temperature: temperature ?? (state as WeatherInitial).temperature,
     );
   }

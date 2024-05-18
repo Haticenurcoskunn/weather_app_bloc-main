@@ -5,20 +5,20 @@ sealed class WeatherState {}
 
 @immutable
 final class WeatherInitial extends WeatherState {
-  final bool isCelcius;
+  final bool isCelsius;
   final String temperature;
 
   WeatherInitial({
-    required this.isCelcius,
+    required this.isCelsius,
     required this.temperature,
   });
 
   WeatherInitial copyWith({
-    bool? isCelcius,
+    bool? isCelsius,
     String? temperature,
   }) {
     return WeatherInitial(
-      isCelcius: isCelcius ?? this.isCelcius,
+      isCelsius: isCelsius ?? this.isCelsius,
       temperature: temperature ?? this.temperature,
     );
   }
