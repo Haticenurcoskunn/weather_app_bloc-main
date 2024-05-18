@@ -8,8 +8,6 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // final weatherCubit = context.read<WeatherCubit>();
-    // final weatherCubit = BlocProvider.of<WeatherCubit>(context);
     return BlocProvider(
       create: (context) => WeatherCubit(),
       child: Scaffold(
@@ -27,18 +25,6 @@ class HomePage extends StatelessWidget {
                   Text(
                     state.isCelcius ? "°C" : "°F",
                     style: const TextStyle(fontSize: 24),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      context.read<WeatherCubit>().updateTemperature("7");
-                    },
-                    child: const Text("Change"),
-                  ),
-                  ElevatedButton(
-                    onPressed: () {
-                      context.read<WeatherCubit>().toggleTemperatureUnit2();
-                    },
-                    child: const Text("Change unit"),
                   ),
                 ],
               );

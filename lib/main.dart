@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:weather_app_bloc/cubit/settings/settings_cubit.dart';
 import 'package:weather_app_bloc/cubit/weather/weather_cubit.dart';
-import 'package:weather_app_bloc/presentation/screen/home_page.dart';
-import 'package:weather_app_bloc/presentation/screen/home_screen2.dart';
 import 'package:weather_app_bloc/presentation/screen/settings_page.dart';
+
+import 'presentation/screen/home_page.dart';
 
 void main() => runApp(const MyApp());
 
@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Material App',
         routes: {
-          '/': (context) => const HomePage2(),
+          '/': (context) => const HomePage(),
           '/settings': (context) => const SettingsPage(),
         },
         initialRoute: '/',

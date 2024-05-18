@@ -23,20 +23,3 @@ final class WeatherInitial extends WeatherState {
     );
   }
 }
-
-@immutable
-final class WeatherError extends WeatherState {
-  final String message;
-
-  WeatherError({
-    required this.message,
-  });
-
-  WeatherError copyWith({
-    String? message,
-  }) {
-    return WeatherError(
-      message: message ?? this.message,
-    );
-  }
-}
